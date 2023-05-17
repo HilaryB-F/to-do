@@ -2,15 +2,78 @@
   &__container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 7rem;
-    background-color: $yellow;
+    height: 9rem;
+    background-color: $orange;
     margin: 0;
     padding: 0;
   }
   &__title {
-    margin: 0;
-    font-size: 5rem;
+    margin: auto;
+    font-size: 6rem;
+    justify-self: center;
+  }
+  &__menu {
+    height: 4rem;
+    margin-right: 6rem;
+
+    &:hover {
+      transform: rotate(180deg);
+      transition: (800ms) ease;
+      color: $brown;
+      cursor: pointer;
+    }
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 8%;
+  right: 0.5rem;
+  &-list {
+    padding: 0;
+    margin: 1rem;
+    border: 1px solid $brown;
+    border-radius: 10px;
+    background-color: $red;
+    width: 12rem;
+    text-align: center;
+  }
+  &-item {
+    list-style-type: none;
+    margin: 1rem;
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background-color: $black;
+      transition: width 0.3s ease-in-out;
+    }
+
+    &::before {
+      left: 50%;
+      transform: translateX(-100%);
+    }
+
+    &::after {
+      right: 50%;
+      transform: translateX(100%);
+    }
+
+    &:hover::before,
+    &:hover::after {
+      width: 50%;
+    }
   }
 }
